@@ -1,11 +1,11 @@
 "use client";
 
-import { Nav, Info } from "@/components";
+import { LoginPage } from "@/pageContainer";
 
 export default function Home() {
   return (
     <>
-      <Nav />
+      <LoginPage />
     </>
   );
 }
