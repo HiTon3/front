@@ -4,7 +4,7 @@ import * as S from "./style";
 
 import { LoginIcon } from "@/assets";
 
-const LoginPage = () => {
+const PreLogin = () => {
   return (
     <S.Layout>
       <S.ButtonWrapper>
@@ -18,4 +18,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default PreLogin;
