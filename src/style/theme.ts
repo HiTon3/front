@@ -17,6 +17,9 @@ const color = {
     "90": "#E4E4E9",
     "100": "#F0F0F9",
   },
+  colorScale: {
+    red: "#D11818",
+  },
 } as const;
 
 const typo = {} as const;

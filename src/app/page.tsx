@@ -1,7 +1,7 @@
 "use client";
 
-import { Funnel } from "@/pageContainer";
+import { Setting } from "@/pageContainer";
 
 export default function Home() {
-  return <Funnel />;
+  return <Setting />;
 }
