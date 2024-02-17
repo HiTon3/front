@@ -42,3 +42,19 @@ export const TextArea = styled.textarea<{ isFocused: boolean }>`
   border-bottom: ${({ theme, isFocused }) =>
     (isFocused ? "1" : "0") + "px solid " + theme.color.grey["100"]};
 `;
+
+export const Button = styled.button`
+  display: flex;
+  padding: 16px 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 16px;
+  background: ${({ theme }) => theme.color.primary["30"]};
+
+  color: ${({ theme }) => theme.color.grey["100"]};
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+`;

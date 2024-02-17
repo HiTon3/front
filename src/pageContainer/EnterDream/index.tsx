@@ -8,7 +8,12 @@ import * as S from "./style";
 
 const MAX_LENGTH = 200;
 
-const EnterDream = () => {
+interface Props {
+  goPrev: () => void;
+  goNext: () => void;
+}
+
+const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
   const [inputValue, setInputValue] = useState<string>("");
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const [isFocused, setIsFocused] = useState(false);
@@ -44,9 +49,10 @@ const EnterDream = () => {
 
   return (
     <S.Layout>
-      <S.GoBackButton>
+      <S.GoBackButton onClick={goPrev}>
         <VectorIcon />
       </S.GoBackButton>
+      <S.Title>어떤 꿈을 꾸셨나요?</S.Title>
       <S.TextArea
         isFocused={isFocused}
         placeholder={"상세히 적어줄 수록 더욱 정확한 결과가 나와요"}
@@ -55,6 +61,9 @@ const EnterDream = () => {
         onChange={handleInputChange}
         ref={textAreaRef}
       />
+      <S.Button>다음</S.Button>
     </S.Layout>
   );
 };
+
+export default EnterDream;
