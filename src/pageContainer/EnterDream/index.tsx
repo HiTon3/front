@@ -49,9 +49,9 @@ const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
 
   return (
     <S.Layout>
-      <S.GoBackButton onClick={goPrev}>
+      <S.GoBack onClick={goPrev}>
         <VectorIcon />
-      </S.GoBackButton>
+      </S.GoBack>
       <S.Title>어떤 꿈을 꾸셨나요?</S.Title>
       <S.TextArea
         isFocused={isFocused}
