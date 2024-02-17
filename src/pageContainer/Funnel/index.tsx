@@ -11,7 +11,7 @@ const Funnel = () => {
     <>
       {curIndex === 0 && <div>해몽 탭</div>}
       {curIndex === 1 && (
-        <P.EnterDeram
+        <P.EnterDream
           goPrev={() => setCurIndex(0)}
           goNext={() => setCurIndex(2)}
         />
