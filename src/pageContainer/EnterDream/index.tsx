@@ -36,13 +36,24 @@ const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
       messages: [
         {
           role: "user",
-          content: inputValue,
+          content: `내가 꾼 꿈을 설명해줄게 해몽해줘. 꿈 내용 : ${inputValue}`,
+        },
+      ],
+      model: "gpt-3.5-turbo",
+    });
+
+    const englishVersion = await openai.chat.completions.create({
+      messages: [
+        {
+          role: "user",
+          content: `영어로 이 내용을 바꿔줘. 바꿀 내용 : ${completion.choices[0].message.content}`,
         },
       ],
       model: "gpt-3.5-turbo",
     });
 
     console.table(completion.choices[0].message.content);
+    console.table(englishVersion.choices[0].message.content);
     setIsLoading(false);
   };
 
