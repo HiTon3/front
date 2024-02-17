@@ -33,7 +33,7 @@ const LoginPage = () => {
 
   return (
     <S.Layout>
-      <S.GoBack onClick={() => push("/prelogin")}>
+      <S.GoBack onClick={() => push("/")}>
         <VectorIcon />
       </S.GoBack>
 
