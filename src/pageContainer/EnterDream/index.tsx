@@ -5,7 +5,12 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useAutoResizeTextArea } from "@/hooks";
 import { VectorIcon } from "@/assets";
 import * as S from "./style";
-import { useSolveState, useEngSolveState, useImageState } from "@/stores";
+import {
+  useSolveState,
+  useEngSolveState,
+  useImageState,
+  useTypeState,
+} from "@/stores";
 
 import { quantum } from "ldrs";
 
@@ -21,6 +26,7 @@ const EnterDream = () => {
   const { setSolve } = useSolveState();
   const { setEngSolve } = useEngSolveState();
   const { setImage } = useImageState();
+  const { setType } = useTypeState();
 
   const [inputValue, setInputValue] = useState<string>("");
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -77,7 +83,18 @@ const EnterDream = () => {
       n: 1,
     });
 
+    const type = await openai.chat.completions.create({
+      messages: [
+        {
+          role: "user",
+          content: `이 내용이 다음 항목 중 어디에 해당하는지 "길몽" "악몽" "예지몽" "일반". 꼭 길몽, 악몽, 예지몽, 일반 중에 하나로 답해줘. 궁금한 내용 : ${completion.choices[0].message.content}`,
+        },
+      ],
+      model: "gpt-3.5-turbo",
+    });
+
     setSolve(completion.choices[0].message.content as string);
+    setType(type.choices[0].message.content as string);
     setEngSolve(englishVersion.choices[0].message.content as string);
     setImage(res.data[0].url as string);
     setIsLoading(false);
