@@ -50,3 +50,9 @@ export const Button = styled.button`
   position: absolute;
   bottom: 24px;
 `;
+
+export const InputArr = styled.div`
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+`;

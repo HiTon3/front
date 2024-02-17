@@ -52,17 +52,19 @@ const Setting = () => {
       <S.GoBack onClick={() => push("/prelogin")}>
         <VectorIcon />
       </S.GoBack>
-      <S.Title>아래 정보를 입력해주세요</S.Title>
 
-      {inputArr.map((input) => (
-        <Input
-          title={input.title}
-          setInputValue={input.setInputValue}
-          inputValue={input.inputValue}
-          placeHolder={input.placeHolder}
-          type={input.type as "email" | "password" | "text"}
-        />
-      ))}
+      <S.InputArr>
+        <S.Title>아래 정보를 입력해주세요</S.Title>
+        {inputArr.map((input) => (
+          <Input
+            title={input.title}
+            setInputValue={input.setInputValue}
+            inputValue={input.inputValue}
+            placeHolder={input.placeHolder}
+            type={input.type as "email" | "password" | "text"}
+          />
+        ))}
+      </S.InputArr>
 
       <S.Button>확인</S.Button>
     </S.Layout>
