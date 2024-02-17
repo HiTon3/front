@@ -4,6 +4,8 @@ import * as S from "./style";
 
 import Image from "next/image";
 
+import { useRouter } from "next/navigation";
+
 import {
   VectorIcon,
   BadDreamIcon,
@@ -24,9 +26,11 @@ const Type = {
 const Info = () => {
   const { result } = useResultState();
 
+  const { push } = useRouter();
+
   return (
     <S.Layout>
-      <S.GoBack>
+      <S.GoBack onClick={() => push("/quest")}>
         <VectorIcon />
       </S.GoBack>
       {result && (
