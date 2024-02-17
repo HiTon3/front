@@ -9,6 +9,8 @@ export const Layout = styled.div`
 export const GoBackButton = styled.button`
   cursor: pointer;
   margin-top: 8px;
+  padding: 0;
+  border: 0;
 `;
 
 export const Title = styled.h1`
@@ -19,7 +21,7 @@ export const Title = styled.h1`
   line-height: 40px;
 `;
 
-export const DreamInput = styled.textarea`
+export const TextArea = styled.textarea<{ isFocused: boolean }>`
   color: ${({ theme }) => theme.color.grey["100"]};
 
   font-size: 16px;
@@ -36,4 +38,7 @@ export const DreamInput = styled.textarea`
   ::placeholder {
     color: ${({ theme }) => theme.color.grey["50"]};
   }
+
+  border-bottom: ${({ theme, isFocused }) =>
+    (isFocused ? "1" : "0") + "px solid " + theme.color.grey["100"]};
 `;
