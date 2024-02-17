@@ -10,6 +10,7 @@ import {
   useEngSolveState,
   useImageState,
   useTypeState,
+  useInputStore,
 } from "@/stores";
 
 import { quantum } from "ldrs";
@@ -27,6 +28,7 @@ const EnterDream = () => {
   const { setEngSolve } = useEngSolveState();
   const { setImage } = useImageState();
   const { setType } = useTypeState();
+  const { setInput } = useInputStore();
 
   const [inputValue, setInputValue] = useState<string>("");
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -93,6 +95,7 @@ const EnterDream = () => {
       model: "gpt-3.5-turbo",
     });
 
+    setInput(inputValue);
     setSolve(completion.choices[0].message.content as string);
     setType(type.choices[0].message.content as string);
     setEngSolve(englishVersion.choices[0].message.content as string);
