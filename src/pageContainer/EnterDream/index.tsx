@@ -11,14 +11,13 @@ import { quantum } from "ldrs";
 
 import OpenAI from "openai";
 
+import { useRouter } from "next/navigation";
+
 const MAX_LENGTH = 200;
 
-interface Props {
-  goPrev: () => void;
-  goNext: () => void;
-}
+const EnterDream = () => {
+  const { push } = useRouter();
 
-const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
   const { setSolve } = useSolveState();
   const { setEngSolve } = useEngSolveState();
   const { setImage } = useImageState();
@@ -112,8 +111,9 @@ const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
     setInputValue(inputValue);
   };
 
-  const handleSubmit = () => {
-    solveDream();
+  const handleSubmit = async () => {
+    await solveDream();
+    push("/result");
   };
 
   return (
@@ -131,7 +131,7 @@ const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
         </>
       ) : (
         <>
-          <S.GoBack onClick={goPrev}>
+          <S.GoBack onClick={() => push("/main")}>
             <VectorIcon />
           </S.GoBack>
           <S.Title>어떤 꿈을 꾸셨나요?</S.Title>

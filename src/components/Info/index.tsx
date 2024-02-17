@@ -35,7 +35,7 @@ const Info = () => {
         <S.DivisionWrapper>
           <S.Division>꿈 종류</S.Division>
           <S.TypeWrapper>
-            {Type["BAD"[1]]}
+            {Type["BAD"][1]}
             <S.TypeText>{Type["BAD"][0]}</S.TypeText>
           </S.TypeWrapper>
         </S.DivisionWrapper>
