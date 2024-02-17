@@ -1,4 +1,5 @@
 "use client";
+
 import { Main } from "@/components";
 
 const MainPage = () => {

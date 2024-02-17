@@ -54,6 +54,7 @@ const DreamList = ({ type }: Props) => {
       <DreamContainer>
         {list.map((item) => (
           <DreamContent
+            key={item}
             onClick={async () => {
               await setResult(item);
               push("/info");

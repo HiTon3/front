@@ -38,6 +38,7 @@ const DreamTab = ({ setTabState, tabState }: Props) => {
         const { Icon, onIcon, text } = item;
         return (
           <TabItem
+            key={item.text}
             onClick={() => setTabState(text)}
             isSelect={tabState === text}
           >

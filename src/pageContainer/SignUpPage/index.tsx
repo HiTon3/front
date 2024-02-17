@@ -69,6 +69,7 @@ const SignupPage = () => {
         <S.Title>아래 정보를 입력해주세요</S.Title>
         {inputArr.map((input) => (
           <Input
+            key={input.title}
             title={input.title}
             setInputValue={input.setInputValue}
             inputValue={input.inputValue}

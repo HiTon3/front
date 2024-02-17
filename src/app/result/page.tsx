@@ -1,3 +1,5 @@
+"use client";
+
 import { ResultPage } from "@/pageContainer";
 
 const Result = () => {

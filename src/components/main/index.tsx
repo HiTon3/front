@@ -1,12 +1,17 @@
 import styled from "@emotion/styled";
 import ReadingDreamItem from "./readingDreamItem";
+import { useEffect, useState } from "react";
 
 const Main = () => {
+  const [state, setState] = useState("");
+
+  useEffect(() => {
+    setState(localStorage.getItem("userName"));
+  }, []);
   return (
     <Wrapper>
       <p>
-        안녕하세요 {localStorage.getItem("userName")}님 <br /> 오늘은 어떤 꿈을
-        꾸셨나요?
+        안녕하세요 {state}님 <br /> 오늘은 어떤 꿈을 꾸셨나요?
       </p>
       <StartReadingDreamContainer>
         <ReadingDreamItem type="IMAGE" />

@@ -59,6 +59,7 @@ const LoginPage = () => {
         </S.Title>
         {inputArr.map((input) => (
           <Input
+            key={input.title}
             title={input.title}
             setInputValue={input.setInputValue}
             inputValue={input.inputValue}

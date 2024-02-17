@@ -1,3 +1,5 @@
+"use client";
+
 import { EnterDream } from "@/pageContainer";
 
 const EnterDreamPage = () => {
