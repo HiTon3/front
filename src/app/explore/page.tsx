@@ -1,12 +1,11 @@
 "use client";
 
 import { Nav } from "@/components";
-import { Setting } from "@/pageContainer";
 
-export default function Home() {
+export default function Explore() {
   return (
     <>
-      <Setting />
+      <h1>Search</h1>
       <Nav />
     </>
   );
