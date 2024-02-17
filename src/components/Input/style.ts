@@ -22,8 +22,11 @@ export const Input = styled.input`
   border-radius: 12px;
   border: 1px solid ${({ theme }) => theme.color.grey["30"]};
   background: ${({ theme }) => theme.color.grey["20"]};
+  color: ${({ theme }) => theme.color.grey["100"]};
 
-  color: ${({ theme }) => theme.color.grey["50"]};
+  ::placeholder {
+    color: ${({ theme }) => theme.color.grey["50"]};
+  }
 
   font-size: 16px;
   font-weight: 600;

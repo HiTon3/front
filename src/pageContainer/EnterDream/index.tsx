@@ -68,15 +68,15 @@ const EnterDream = () => {
       model: "gpt-3.5-turbo",
     });
 
-    const englishVersion = await openai.chat.completions.create({
-      messages: [
-        {
-          role: "user",
-          content: `영어로 이 내용을 바꿔줘. 바꿀 내용 : ${completion.choices[0].message.content}`,
-        },
-      ],
-      model: "gpt-3.5-turbo",
-    });
+    // const englishVersion = await openai.chat.completions.create({
+    //   messages: [
+    //     {
+    //       role: "user",
+    //       content: `영어로 이 내용을 바꿔줘. 바꿀 내용 : ${completion.choices[0].message.content}`,
+    //     },
+    //   ],
+    //   model: "gpt-3.5-turbo",
+    // });
 
     const res = await openai.images.generate({
       prompt: `Draw a scene of my dream. The contents of the dream : ${engCompletion.choices[0].message.content}`,
@@ -98,7 +98,7 @@ const EnterDream = () => {
     setInput(inputValue);
     setSolve(completion.choices[0].message.content as string);
     setType(type.choices[0].message.content as string);
-    setEngSolve(englishVersion.choices[0].message.content as string);
+    // setEngSolve(englishVersion.choices[0].message.content as string);
     setImage(res.data[0].url as string);
     setIsLoading(false);
   };

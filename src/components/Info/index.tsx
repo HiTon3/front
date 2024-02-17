@@ -56,11 +56,11 @@ const Info = () => {
               </S.TypeWrapper>
             </S.DivisionWrapper>
             <S.DivisionWrapper>
-              <S.Division>꿈의 내용</S.Division>
+              <S.Division>해몽 내용</S.Division>
               <S.Text>{result.text}</S.Text>
             </S.DivisionWrapper>
             <S.DivisionWrapper>
-              <S.Division>해몽 내용</S.Division>
+              <S.Division>꿈의 내용</S.Division>
               <S.Text>{result.dreamText}</S.Text>
             </S.DivisionWrapper>
           </S.DivisionContainer>

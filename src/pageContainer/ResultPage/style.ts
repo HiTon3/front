@@ -73,6 +73,9 @@ export const Text = styled.p`
   font-size: 16px;
   font-weight: 500;
   line-height: 28px;
+
+  height: 100px;
+  overflow-y: scroll;
 `;
 
 export const TypeText = styled(Text)`

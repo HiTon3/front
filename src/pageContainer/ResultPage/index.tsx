@@ -52,6 +52,7 @@ const Result = () => {
       category: reverse[type as "길몽" | "악몽" | "예지몽" | "일반"],
       text: solve,
       dreamText: input,
+      userName: localStorage.getItem("userName"),
     });
   };
 
@@ -76,8 +77,8 @@ const Result = () => {
         <S.DivisionWrapper>
           <S.Division>꿈 종류</S.Division>
           <S.TypeWrapper>
-            {type}
-            <S.TypeText>{Type[reverse[type]][0]}</S.TypeText>
+            {Type[reverse[type]][1]}
+            <S.TypeText>{type}</S.TypeText>
           </S.TypeWrapper>
         </S.DivisionWrapper>
         <S.DivisionWrapper>
