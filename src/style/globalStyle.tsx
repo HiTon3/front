@@ -14,7 +14,6 @@ export function GlobalStyle() {
         ${emotionReset}
 
         body {
-          overflow-x: hidden;
           background-color: ${theme.color.grey["10"]};
         }
 

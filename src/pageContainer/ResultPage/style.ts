@@ -79,3 +79,32 @@ export const TypeText = styled(Text)`
   font-weight: 600;
   font-size: 18px;
 `;
+
+export const Button = styled.button`
+  display: flex;
+  padding: 16px 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 327px;
+
+  border-radius: 16px;
+  background: ${({ theme }) => theme.color.primary["30"]};
+  border: 0;
+  cursor: pointer;
+
+  color: ${({ theme }) => theme.color.grey["100"]};
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+`;
+
+export const Title = styled.h1`
+  color: ${({ theme }) => theme.color.grey["100"]};
+
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 40px;
+
+  margin: 48px 0 16px;
+`;

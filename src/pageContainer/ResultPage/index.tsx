@@ -7,7 +7,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import {
-  VectorIcon,
   BadDreamIcon,
   GoodDreamIcon,
   VisionDreamIcon,
@@ -38,7 +37,7 @@ const reverse = {
   일반: "DOG",
 };
 
-const Info = () => {
+const Result = () => {
   const { image } = useImageState();
   const { solve } = useSolveState();
   const { type } = useTypeState();
@@ -62,6 +61,11 @@ const Info = () => {
 
   return (
     <S.Layout>
+      <S.Title>
+        해몽이 완료됐어요!
+        <br />
+        영상과 함께 해몽을 확인하세요
+      </S.Title>
       <S.ImageWrapper>
         <Image unoptimized src={image} alt="" fill />
       </S.ImageWrapper>
@@ -85,8 +89,9 @@ const Info = () => {
           <S.Text>{input}</S.Text>
         </S.DivisionWrapper>
       </S.DivisionContainer>
+      <S.Button onClick={() => push("/quest")}>완료</S.Button>
     </S.Layout>
   );
 };
 
-export default Info;
+export default Result;

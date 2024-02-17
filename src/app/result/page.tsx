@@ -1,5 +1,7 @@
+import { ResultPage } from "@/pageContainer";
+
 const Result = () => {
-  return <></>;
+  return <ResultPage />;
 };
 
 export default Result;
