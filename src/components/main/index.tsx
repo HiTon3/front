@@ -5,7 +5,8 @@ const Main = () => {
   return (
     <Wrapper>
       <p>
-        안녕하세요 전영준님 <br /> 오늘은 어떤 꿈을 꾸셨나요?
+        안녕하세요 {localStorage.getItem("userName")}님 <br /> 오늘은 어떤 꿈을
+        꾸셨나요?
       </p>
       <StartReadingDreamContainer>
         <ReadingDreamItem type="IMAGE" />

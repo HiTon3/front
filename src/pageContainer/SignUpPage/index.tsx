@@ -56,7 +56,7 @@ const SignupPage = () => {
       userName: name,
     });
 
-    if (res.status < 300) push("/main");
+    if (res.status < 300) push("/login");
   };
 
   return (
