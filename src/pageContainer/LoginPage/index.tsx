@@ -33,14 +33,12 @@ const LoginPage = () => {
   ];
 
   const onSubmit = async () => {
-    if (!email && !pw) return;
-
     const res = await apiInstance.post("/auth/login", {
       email: email,
       password: pw,
     });
 
-    push("/main");
+    if (res.status < 300) push("/main");
   };
 
   return (
