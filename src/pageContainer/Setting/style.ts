@@ -59,3 +59,15 @@ export const Line = styled.div`
 
   margin: 16px 0;
 `;
+
+export const ModalWrapper = styled.dialog`
+  border-radius: 16px;
+  border: none;
+  padding: 0;
+  outline: none;
+  background: ${({ theme }) => theme.color.grey["20"]};
+
+  ::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+  }
+`;
