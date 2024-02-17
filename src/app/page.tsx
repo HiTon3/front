@@ -1,7 +1,7 @@
 "use client";
 
-import * as S from "@/style";
+import { Funnel } from "@/pageContainer";
 
 export default function Home() {
-  return <S.Test></S.Test>;
+  return <Funnel />;
 }
