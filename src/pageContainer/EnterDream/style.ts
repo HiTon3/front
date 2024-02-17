@@ -78,3 +78,11 @@ export const Button = styled.button`
   position: absolute;
   bottom: 24px;
 `;
+
+export const Loading = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 280px;
+`;
