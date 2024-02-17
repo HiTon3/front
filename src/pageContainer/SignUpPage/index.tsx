@@ -8,9 +8,11 @@ import { useState } from "react";
 
 import { useRouter } from "next/navigation";
 
-const LoginPage = () => {
+const SignupPage = () => {
   const [email, setEmail] = useState<string>("");
   const [pw, setPw] = useState<string>("");
+  const [checkPw, setCheckPw] = useState<string>("");
+  const [name, setName] = useState<string>("");
 
   const { push } = useRouter();
 
@@ -29,6 +31,20 @@ const LoginPage = () => {
       title: "비밀번호",
       placeHolder: "비밀번호를 입력해주세요",
     },
+    {
+      inputValue: checkPw,
+      setInputValue: setCheckPw,
+      type: "password",
+      title: "비밀번호 재입력",
+      placeHolder: "비밀번호를 다시 입력해주세요",
+    },
+    {
+      inputValue: name,
+      setInputValue: setName,
+      type: "text",
+      title: "이름",
+      placeHolder: "이름을 입력해주세요",
+    },
   ];
 
   return (
@@ -38,11 +54,7 @@ const LoginPage = () => {
       </S.GoBack>
 
       <S.InputArr>
-        <S.Title>
-          아래 정보를 입력하고
-          <br />
-          기존 계정으로 로그인 해주세요
-        </S.Title>
+        <S.Title>아래 정보를 입력해주세요</S.Title>
         {inputArr.map((input) => (
           <Input
             title={input.title}
@@ -59,4 +71,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignupPage;

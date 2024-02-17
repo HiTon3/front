@@ -1,11 +1,11 @@
 "use client";
 
-import { LoginPage } from "@/pageContainer";
+import { PreLogin } from "@/pageContainer";
 
 export default function Home() {
   return (
     <>
-      <LoginPage />
+      <PreLogin />
     </>
   );
 }
