@@ -7,6 +7,8 @@ import { VectorIcon } from "@/assets";
 import * as S from "./style";
 import { useSolveState, useEngSolveState, useImageState } from "@/stores";
 
+import { quantum } from "ldrs";
+
 import OpenAI from "openai";
 
 const MAX_LENGTH = 200;
@@ -33,6 +35,8 @@ const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
     apiKey: key,
     dangerouslyAllowBrowser: true,
   });
+
+  quantum.register();
 
   const solveDream = async () => {
     setIsLoading(true);
@@ -114,24 +118,37 @@ const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
 
   return (
     <S.Layout>
-      <S.GoBack onClick={goPrev}>
-        <VectorIcon />
-      </S.GoBack>
-      <S.Title>어떤 꿈을 꾸셨나요?</S.Title>
-      <S.TextArea
-        isFocused={isFocused}
-        placeholder={"상세히 적어줄 수록 더욱 정확한 결과가 나와요"}
-        maxLength={MAX_LENGTH}
-        value={inputValue}
-        onChange={handleInputChange}
-        ref={textAreaRef}
-      />
-      <S.Button
-        disabled={inputValue.length < 2 || isLoading}
-        onClick={handleSubmit}
-      >
-        다음
-      </S.Button>
+      {isLoading ? (
+        <>
+          <S.Title>
+            꿈을 해몽하고 있어요
+            <br />
+            조금만 기다려주세요 🧐
+          </S.Title>
+          <l-quantum size="100" speed="1.75" color="white"></l-quantum>
+        </>
+      ) : (
+        <>
+          <S.GoBack onClick={goPrev}>
+            <VectorIcon />
+          </S.GoBack>
+          <S.Title>어떤 꿈을 꾸셨나요?</S.Title>
+          <S.TextArea
+            isFocused={isFocused}
+            placeholder={"상세히 적어줄 수록 더욱 정확한 결과가 나와요"}
+            maxLength={MAX_LENGTH}
+            value={inputValue}
+            onChange={handleInputChange}
+            ref={textAreaRef}
+          />
+          <S.Button
+            disabled={inputValue.length < 2 || isLoading}
+            onClick={handleSubmit}
+          >
+            다음
+          </S.Button>
+        </>
+      )}
     </S.Layout>
   );
 };

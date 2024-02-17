@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.11.0",
     "axios": "^1.6.7",
     "emotion-reset": "^3.0.1",
+    "ldrs": "^1.0.1",
     "next": "14.1.0",
     "openai": "^4.28.0",
     "react": "^18",
