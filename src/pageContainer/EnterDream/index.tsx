@@ -126,7 +126,7 @@ const EnterDream = () => {
             조금만 기다려주세요 🧐
           </S.Title>
           <S.Loading>
-            <l-quantum size="100" speed="1.75" color="white"></l-quantum>
+            <l-quantum size="100" speed="1" color="white"></l-quantum>
           </S.Loading>
         </>
       ) : (
