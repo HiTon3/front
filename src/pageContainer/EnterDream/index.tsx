@@ -6,6 +6,8 @@ import { useAutoResizeTextArea } from "@/hooks";
 import { VectorIcon } from "@/assets";
 import * as S from "./style";
 
+import OpenAI from "openai";
+
 const MAX_LENGTH = 200;
 
 interface Props {
@@ -18,6 +20,31 @@ const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [isMultiLine, setIsMultiLine] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const key = process.env.NEXT_PUBLIC_OPENAI_KEY;
+
+  const openai = new OpenAI({
+    apiKey: key,
+    dangerouslyAllowBrowser: true,
+  });
+
+  const solveDream = async () => {
+    setIsLoading(true);
+
+    const completion = await openai.chat.completions.create({
+      messages: [
+        {
+          role: "user",
+          content: inputValue,
+        },
+      ],
+      model: "gpt-3.5-turbo",
+    });
+
+    console.table(completion.choices[0].message.content);
+    setIsLoading(false);
+  };
 
   useAutoResizeTextArea(textAreaRef.current, inputValue, setIsMultiLine);
 
@@ -47,6 +74,10 @@ const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
     setInputValue(inputValue);
   };
 
+  const handleSubmit = () => {
+    solveDream();
+  };
+
   return (
     <S.Layout>
       <S.GoBack onClick={goPrev}>
@@ -61,7 +92,12 @@ const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
         onChange={handleInputChange}
         ref={textAreaRef}
       />
-      <S.Button>다음</S.Button>
+      <S.Button
+        disabled={inputValue.length < 2 || isLoading}
+        onClick={handleSubmit}
+      >
+        다음
+      </S.Button>
     </S.Layout>
   );
 };
