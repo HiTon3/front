@@ -47,6 +47,16 @@ const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
       model: "gpt-3.5-turbo",
     });
 
+    const engCompletion = await openai.chat.completions.create({
+      messages: [
+        {
+          role: "user",
+          content: `내가 꾼 꿈을 설명해줄게 영어로 해몽해줘. 꿈 내용 : ${inputValue}`,
+        },
+      ],
+      model: "gpt-3.5-turbo",
+    });
+
     const englishVersion = await openai.chat.completions.create({
       messages: [
         {
@@ -58,7 +68,7 @@ const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
     });
 
     const res = await openai.images.generate({
-      prompt: `내가 꾼 꿈을 한 장면으로 그려줘. 꿈 내용 : ${inputValue}`,
+      prompt: `Draw a scene of my dream. The contents of the dream : ${engCompletion.choices[0].message.content}`,
       size: "512x512",
       quality: "standard",
       n: 1,
