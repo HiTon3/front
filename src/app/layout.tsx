@@ -7,6 +7,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <link
+        href="https://cdn.jsdelivr.net/gh/sun-typeface/SUITE/fonts/static/woff2/SUITE.css"
+        rel="stylesheet"
+      />
+
       <body>
         <Providers>{children}</Providers>
       </body>
