@@ -1,5 +1,5 @@
 'use client'
-import Main from "@/components/main"
+import Main from "@/components/Main"
 
 const MainPage = () => {
     return <Main/>
