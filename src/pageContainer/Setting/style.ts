@@ -35,6 +35,8 @@ export const FeatWrapper = styled.div`
   gap: 8px;
 
   margin: 16px 0;
+
+  cursor: pointer;
 `;
 
 export const FeatText = styled.span`
@@ -46,11 +48,14 @@ export const FeatText = styled.span`
 `;
 
 export const RedFeatText = styled(FeatText)`
-  color: ${({ theme }) => theme.color.grey["100"]};
+  color: ${({ theme }) => theme.color.colorScale.red};
 `;
 
 export const Line = styled.div`
   width: 100%;
   height: 1px;
+
   background-color: ${({ theme }) => theme.color.grey["30"]};
+
+  margin: 16px 0;
 `;
