@@ -78,9 +78,9 @@ const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
       n: 1,
     });
 
-    setSolve(completion.choices[0].message.content);
-    setEngSolve(englishVersion.choices[0].message.content);
-    setImage(res.data[0].url);
+    setSolve(completion.choices[0].message.content as string);
+    setEngSolve(englishVersion.choices[0].message.content as string);
+    setImage(res.data[0].url as string);
     setIsLoading(false);
   };
 
