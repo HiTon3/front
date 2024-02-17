@@ -1,8 +1,8 @@
-'use client'
-import Main from "@/components/Main"
+"use client";
+import { Main } from "@/components";
 
 const MainPage = () => {
-    return <Main/>
-}
+  return <Main />;
+};
 
-export default MainPage
+export default MainPage;
