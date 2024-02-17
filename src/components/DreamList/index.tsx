@@ -4,7 +4,11 @@ import DreamTab from "./DreamTab";
 import Image from "next/image";
 import setting from "@/assets/settings.svg";
 
+import { useResultState } from "@/stores";
+
 import { apiInstance } from "@/api";
+
+import { useRouter } from "next/navigation";
 
 export type FormType = "길몽" | "악몽" | "예지몽" | "일반";
 interface Props {
@@ -17,6 +21,10 @@ const DreamList = ({ type }: Props) => {
   );
 
   const [list, setList] = useState<any[]>([]);
+
+  const { setResult } = useResultState();
+
+  const { push } = useRouter();
 
   const getList = async () => {
     const { data } = await apiInstance.get(
@@ -45,7 +53,13 @@ const DreamList = ({ type }: Props) => {
       <DreamTab setTabState={setTabState} tabState={tabState} />
       <DreamContainer>
         {list.map((item) => (
-          <DreamContent image={item.image} />
+          <DreamContent
+            onClick={async () => {
+              await setResult(item);
+              push("/info");
+            }}
+            image={item.image}
+          />
         ))}
       </DreamContainer>
     </Wrapper>
