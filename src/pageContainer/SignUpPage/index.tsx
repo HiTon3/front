@@ -2,6 +2,7 @@
 
 import { VectorIcon } from "@/assets";
 import { Input } from "@/components";
+import { apiInstance } from "@/api";
 import * as S from "./style";
 
 import { useState } from "react";
@@ -47,6 +48,17 @@ const SignupPage = () => {
     },
   ];
 
+  const onSubmit = async () => {
+    const res = await apiInstance.post("/auth/signUp", {
+      email: email,
+      password: pw,
+      rePassword: checkPw,
+      userName: name,
+    });
+
+    if (res.status < 300) push("/main");
+  };
+
   return (
     <S.Layout>
       <S.GoBack onClick={() => push("/")}>
@@ -66,7 +78,7 @@ const SignupPage = () => {
         ))}
       </S.InputArr>
 
-      <S.Button>확인</S.Button>
+      <S.Button onClick={onSubmit}>확인</S.Button>
     </S.Layout>
   );
 };
