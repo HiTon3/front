@@ -38,6 +38,10 @@ const LoginPage = () => {
       password: pw,
     });
 
+    localStorage.setItem("token", res.data.token);
+    localStorage.setItem("id", res.data.id);
+    localStorage.setItem("userName", res.data.userName);
+
     if (res.status < 300) push("/main");
   };
 
