@@ -5,6 +5,7 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useAutoResizeTextArea } from "@/hooks";
 import { VectorIcon } from "@/assets";
 import * as S from "./style";
+import { useSolveState, useEngSolveState, useImageState } from "@/stores";
 
 import OpenAI from "openai";
 
@@ -16,6 +17,10 @@ interface Props {
 }
 
 const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
+  const { setSolve } = useSolveState();
+  const { setEngSolve } = useEngSolveState();
+  const { setImage } = useImageState();
+
   const [inputValue, setInputValue] = useState<string>("");
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const [isFocused, setIsFocused] = useState(false);
@@ -52,8 +57,16 @@ const EnterDream: React.FC<Props> = ({ goNext, goPrev }) => {
       model: "gpt-3.5-turbo",
     });
 
-    console.table(completion.choices[0].message.content);
-    console.table(englishVersion.choices[0].message.content);
+    const res = await openai.images.generate({
+      prompt: `내가 꾼 꿈을 한 장면으로 그려줘. 꿈 내용 : ${inputValue}`,
+      size: "512x512",
+      quality: "standard",
+      n: 1,
+    });
+
+    setSolve(completion.choices[0].message.content);
+    setEngSolve(englishVersion.choices[0].message.content);
+    setImage(res.data[0].url);
     setIsLoading(false);
   };
 
