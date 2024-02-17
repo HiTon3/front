@@ -1,7 +1,7 @@
 "use client";
 
-import { Setting } from "@/pageContainer";
+import { ImageTest } from "@/pageContainer";
 
 export default function Home() {
-  return <Setting />;
+  return <ImageTest />;
 }
