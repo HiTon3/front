@@ -39,7 +39,7 @@ const LoginPage = () => {
     });
 
     localStorage.setItem("token", res.data.token);
-    localStorage.setItem("id", res.data.id);
+    localStorage.setItem("id", res.data.userId);
     localStorage.setItem("userName", res.data.userName);
 
     if (res.status < 300) push("/main");
