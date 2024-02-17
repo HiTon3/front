@@ -27,6 +27,8 @@ export const ImageWrapper = styled.div`
   overflow: hidden;
   position: relative;
 
+  margin-top: 32px;
+
   img {
     object-fit: cover;
   }

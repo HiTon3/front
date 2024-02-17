@@ -4,7 +4,20 @@ import * as S from "./style";
 
 import Image from "next/image";
 
-import { VectorIcon } from "@/assets";
+import {
+  VectorIcon,
+  BadDreamIcon,
+  GoodDreamIcon,
+  VisionDreamIcon,
+  CommonDeramIcon,
+} from "@/assets";
+
+const Type = {
+  GOOD: ["길몽", <GoodDreamIcon />],
+  BAD: ["악몽", <BadDreamIcon />],
+  PRECOG: ["예지몽", <VisionDreamIcon />],
+  DOG: ["일반", <CommonDeramIcon />],
+} as const;
 
 const Info = () => {
   return (
@@ -21,7 +34,10 @@ const Info = () => {
       <S.DivisionContainer>
         <S.DivisionWrapper>
           <S.Division>꿈 종류</S.Division>
-          <S.TypeWrapper></S.TypeWrapper>
+          <S.TypeWrapper>
+            {Type["BAD"[1]]}
+            <S.TypeText>{Type["BAD"][0]}</S.TypeText>
+          </S.TypeWrapper>
         </S.DivisionWrapper>
         <S.DivisionWrapper>
           <S.Division>꿈의 내용</S.Division>
