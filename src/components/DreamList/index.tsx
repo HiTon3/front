@@ -27,9 +27,7 @@ const DreamList = ({ type }: Props) => {
   const { push } = useRouter();
 
   const getList = async () => {
-    const { data } = await apiInstance.get(
-      `/dream/read?userId=${localStorage.getItem("id")}`
-    );
+    const { data } = await apiInstance.get(`/dream/all`);
 
     setList(data);
   };
